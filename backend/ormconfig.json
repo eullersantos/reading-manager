@@ -3,8 +3,9 @@
   "host": "127.0.0.1",
   "username": "root",
   "password": "123456",
-  "database": "my_api",
+  "database": "reading_manager",
   "entities": ["./src/domain/models/*.ts"],
+  "migrations": ["./src/database/migrations/*.ts"],
   "cli": {
     "migrationsDir": "./src/database/migrations"
   }
