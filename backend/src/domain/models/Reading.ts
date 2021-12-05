@@ -1,5 +1,14 @@
-import { Column, Entity, PrimaryColumn } from "typeorm";
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  JoinColumn,
+  PrimaryColumn,
+} from "typeorm";
 import { v4 as uuidV4 } from "uuid";
+
+import { LiteraryWork } from "./LiteraryWork";
+import { User } from "./User";
 
 export type readStatus =
   | "Lendo"
@@ -8,34 +17,35 @@ export type readStatus =
   | "Esperando novos capítulos"
   | "Finalizado";
 
-export type typeOfReading = "Mangá" | "Manhwa" | "Novel";
-
 @Entity("reading")
 class Reading {
   @PrimaryColumn()
-  id: number;
+  id?: string;
+
+  @JoinColumn({ referencedColumnName: "id" })
+  literaryWork: LiteraryWork;
 
   @Column()
-  uuid: string;
+  current_chapter: number;
 
   @Column()
-  chapter: number;
+  url_to_current_chapter: string;
 
-  @Column()
-  image: string;
-
-  @Column()
-  link: string;
+  @JoinColumn({ referencedColumnName: "id" })
+  user: User;
 
   @Column()
   status: readStatus;
 
-  @Column()
-  type: typeOfReading;
+  @CreateDateColumn()
+  created_at: Date;
+
+  @CreateDateColumn()
+  updated_at: Date;
 
   constructor() {
-    if (!this.uuid) {
-      this.uuid = uuidV4();
+    if (!this.id) {
+      this.id = uuidV4();
     }
   }
 }

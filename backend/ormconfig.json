@@ -6,6 +6,7 @@
   "database": "reading_manager",
   "entities": ["./src/domain/models/*.ts"],
   "migrations": ["./src/database/migrations/*.ts"],
+  "synchronize": 0,
   "cli": {
     "migrationsDir": "./src/database/migrations"
   }

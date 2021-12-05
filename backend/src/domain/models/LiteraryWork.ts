@@ -4,7 +4,7 @@ import { v4 as uuidV4 } from "uuid";
 export type typeOfLiteraryWork = "Mangá" | "Manhwa" | "Novel";
 
 @Entity("literary_work")
-class User {
+class LiteraryWork {
   @PrimaryColumn()
   id?: string;
 
@@ -36,4 +36,4 @@ class User {
   }
 }
 
-export { User };
+export { LiteraryWork };
