@@ -1,15 +1,7 @@
 import { Column, CreateDateColumn, Entity, PrimaryColumn } from "typeorm";
 import { v4 as uuidV4 } from "uuid";
 
-interface IUser {
-  id?: string;
-  password: string;
-  email: string;
-  username: string;
-  created_at: Date;
-  updated_at: Date;
-}
-
+@Entity("users")
 class User {
   @PrimaryColumn()
   id?: string;
@@ -29,14 +21,7 @@ class User {
   @CreateDateColumn()
   updated_at: Date;
 
-  constructor(props: IUser) {
-    this.id = props.id;
-    this.password = props.password;
-    this.email = props.email;
-    this.username = props.username;
-    this.created_at = props.created_at;
-    this.updated_at = props.updated_at;
-
+  constructor() {
     if (!this.id) {
       this.id = uuidV4();
     }
