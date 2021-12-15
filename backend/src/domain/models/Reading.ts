@@ -4,25 +4,25 @@ import {
   Entity,
   JoinColumn,
   PrimaryColumn,
-} from "typeorm";
-import { v4 as uuidV4 } from "uuid";
+} from 'typeorm';
+import { v4 as uuidV4 } from 'uuid';
 
-import { LiteraryWork } from "./LiteraryWork";
-import { User } from "./User";
+import { LiteraryWork } from './LiteraryWork';
+import { User } from './User';
 
 export type readStatus =
-  | "Lendo"
-  | "Dropado"
-  | "Para ler"
-  | "Esperando novos capítulos"
-  | "Finalizado";
+  | 'Lendo'
+  | 'Dropado'
+  | 'Para ler'
+  | 'Esperando novos capítulos'
+  | 'Finalizado';
 
-@Entity("reading")
+@Entity('reading')
 class Reading {
   @PrimaryColumn()
   id?: string;
 
-  @JoinColumn({ referencedColumnName: "id" })
+  @JoinColumn({ referencedColumnName: 'id' })
   literaryWork: LiteraryWork;
 
   @Column()
@@ -31,7 +31,7 @@ class Reading {
   @Column()
   url_to_current_chapter: string;
 
-  @JoinColumn({ referencedColumnName: "id" })
+  @JoinColumn({ referencedColumnName: 'id' })
   user: User;
 
   @Column()

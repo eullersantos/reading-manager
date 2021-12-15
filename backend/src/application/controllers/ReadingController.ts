@@ -1,6 +1,6 @@
-import { Request, Response } from "express";
+import { Request, Response } from 'express';
 
-import { IReadingController } from "../../domain/interfaces";
+import { IReadingController } from '../../domain/interfaces';
 
 class ReadingController implements IReadingController {
   getAll(request: Request, response: Response): Response {
