@@ -1,9 +1,9 @@
-import { Column, CreateDateColumn, Entity, PrimaryColumn } from "typeorm";
-import { v4 as uuidV4 } from "uuid";
+import { Column, CreateDateColumn, Entity, PrimaryColumn } from 'typeorm';
+import { v4 as uuidV4 } from 'uuid';
 
-export type typeOfLiteraryWork = "Mangá" | "Manhwa" | "Novel";
+export type typeOfLiteraryWork = 'Mangá' | 'Manhwa' | 'Novel';
 
-@Entity("literary_work")
+@Entity('literary_work')
 class LiteraryWork {
   @PrimaryColumn()
   id?: string;
