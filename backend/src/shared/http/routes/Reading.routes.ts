@@ -1,5 +1,6 @@
-import { ReadingController } from '@application/controllers/ReadingController';
 import { Router } from 'express';
+
+import { ReadingController } from '@application/controllers/ReadingController';
 
 const readingRoutes = Router();
 
