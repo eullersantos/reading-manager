@@ -6,7 +6,7 @@ const readingRoutes = Router();
 
 const readingController = new ReadingController();
 
-readingRoutes.get('/readings', (request, response) => {
+readingRoutes.get('/reading', (request, response) => {
   return readingController.getAll(request, response);
 });
 
