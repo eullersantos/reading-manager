@@ -8,6 +8,6 @@
   "migrations": ["./src/application/infra/database/migrations/*.ts"],
   "synchronize": 0,
   "cli": {
-    "migrationsDir": "./src/database/migrations"
+    "migrationsDir": "./src/application/infra/database/migrations"
   }
 }

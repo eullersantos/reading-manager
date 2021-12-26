@@ -1,4 +1,4 @@
-import { MigrationInterface, QueryRunner, Table } from 'typeorm';
+import { MigrationInterface, QueryRunner, Table, TableColumn } from 'typeorm';
 
 export class CreateLiteraryWork1638715264302 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
@@ -20,6 +20,14 @@ export class CreateLiteraryWork1638715264302 implements MigrationInterface {
             isNullable: false,
           },
         ],
+      })
+    );
+
+    await queryRunner.addColumn(
+      'literary_work',
+      new TableColumn({
+        name: 'description',
+        type: 'varchar',
       })
     );
   }

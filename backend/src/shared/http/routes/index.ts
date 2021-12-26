@@ -1,9 +1,12 @@
 import { Router } from 'express';
 
-import { readingRoutes } from '@shared/http/routes/Reading.routes';
+import { userRoutes } from '@shared/http/routes/User.routes';
+
+// import { readingRoutes } from '@shared/http/routes/Reading.routes';
 
 const routes = Router();
 
-routes.use('/reading', readingRoutes);
+routes.use('/user', userRoutes);
+// routes.use('/reading', readingRoutes);
 
 export { routes };
