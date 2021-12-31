@@ -1,22 +1,11 @@
 import { Router } from 'express';
 
-import { ServerError } from '@shared/errors/ServerError';
+import { UserController } from '@application/controllers/UserController';
 import { routerResolve } from '@shared/utils/RouterAdapater';
 
 const userRoutes = Router();
+const userController = new UserController();
 
-userRoutes.get(
-  '/',
-  routerResolve((req, res) => {
-    throw new Error('AaaaaaaAaAAAaa');
-  })
-);
-
-userRoutes.post(
-  '/',
-  routerResolve((req, res) => {
-    throw new ServerError('EEeeeEeeeeEEEeeeeEeE');
-  })
-);
+userRoutes.post('/', routerResolve(userController.create));
 
 export { userRoutes };

@@ -18,3 +18,8 @@ server.listen(3535, () => {
     ✅ - Server is running! 
   `);
 });
+
+/*
+  TODO: Utilizar esta lista para testar as rotas
+  https://www.npmjs.com/package/supertest
+*/
