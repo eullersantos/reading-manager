@@ -1,3 +1,5 @@
+import regexHelper from '@shared/http/validators/User/helper';
+
 interface IValidateUserCreate {
   email: string;
   username: string;
@@ -19,15 +21,14 @@ export class ValidateUserCreate {
   }
 
   showErrorMessage(): string | undefined {
-    if (!this.emailValidation(this.email))
+    if (!regexHelper.forEmailValidation.test(this.email))
       this.messageError = 'Invalid or not informed email!';
 
-    return this.messageError;
-  }
+    if (!this.password) this.messageError = 'Invalid or not informed username!';
 
-  emailValidation(email: string): boolean {
-    // eslint-disable-next-line no-useless-escape
-    const reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    return reg.test(email);
+    if (!regexHelper.forPasswordValidation.test(this.password))
+      this.messageError = 'Invalid or not informed password!';
+
+    return this.messageError;
   }
 }
