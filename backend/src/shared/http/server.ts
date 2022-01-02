@@ -1,8 +1,7 @@
 import 'reflect-metadata';
+import '@application/infra/database';
 
 import express from 'express';
-
-import '@application/infra/database';
 
 import { errorMiddleware } from '@shared/http/middlewares/ErrorMiddleware';
 import { routes } from '@shared/http/routes';

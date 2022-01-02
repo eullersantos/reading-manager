@@ -1,1 +1,1 @@
-export * from './IReadingController';
+export * from './IUserController';
