@@ -1,11 +1,17 @@
 import { Router } from 'express';
 
-import { UserController } from '@application/controllers/UserController';
+import { IUserController } from '@domain/interfaces/controllers';
+import container from '@shared/container';
 import { routerResolve } from '@shared/utils/RouterAdapater';
 
 const userRoutes = Router();
-const userController = new UserController();
+const userController = container.get<IUserController>('UserController');
 
-userRoutes.post('/', routerResolve(userController.create));
+userRoutes.post(
+  '/',
+  routerResolve(async (req, res) => {
+    await userController.create(req, res);
+  })
+);
 
 export { userRoutes };

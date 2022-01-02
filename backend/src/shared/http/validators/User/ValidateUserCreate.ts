@@ -20,7 +20,12 @@ export class ValidateUserCreate {
     this.messageError = props.messageError;
   }
 
-  showErrorMessage(): string | undefined {
+  public showErrorMessage(): string | undefined {
+    /*
+      TODO: Válidar caso usuario mande um campo que não deveria.
+      EX: { aaa: 'aaa' }
+    */
+
     if (!regexHelper.forEmailValidation.test(this.email))
       this.messageError = 'Invalid or not informed email!';
 
